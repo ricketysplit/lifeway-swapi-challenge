@@ -1,4 +1,4 @@
-import swapiClient from "../api/swapiClient";
+import swapiClient from "../api/serverClient";
 import AppearsIn from "./appearsIn";
 import PersonDetails from "./person";
 import Starships from "./starships";

@@ -26,6 +26,7 @@ const ButWaitTheresMore = ({ text, children }: ButWaitTheresMoreProps) => {
   return (
     <div>
       <div
+        data-testid="but-wait-theres-more"
         className="shadow-sm mb-4 p-3 rounded border-2 border-slate-300"
         onMouseEnter={handlePopoverOpen}
         onMouseLeave={handlePopoverClose}

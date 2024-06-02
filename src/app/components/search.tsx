@@ -5,7 +5,9 @@ import Autocomplete, {
 import TextField from "@mui/material/TextField";
 import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import client from "../api/client";
 import { Person } from "../types/person";
+import serverGraphQLClient from "../api/serverGraphQLClient";
 
 const SearchBar = () => {
   const router = useRouter();
@@ -13,8 +15,7 @@ const SearchBar = () => {
 
   const findPeople = useCallback(
     (value: string) => {
-      fetch(`/api/person?search=${value || ""}`).then(async (results) => {
-        const allPeople = (await results.json()) as Person[];
+      serverGraphQLClient.findPerson(value).then((allPeople) => {
         setPeople(allPeople);
       });
     },
@@ -41,6 +42,7 @@ const SearchBar = () => {
 
   return (
     <Autocomplete
+      data-testid="autocomplete-search"
       className="w-50"
       disablePortal
       id="combo-box-demo"

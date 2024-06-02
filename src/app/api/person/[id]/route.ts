@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import swapiClient from "../../swapiClient";
+import swapiClient from "../../serverClient";
 
 type GetPersonRequest = {
   params: {
